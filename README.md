@@ -1,1 +1,1 @@
-# checkers-ui
+# CheckersUi
