@@ -10,7 +10,7 @@ phases:
 artifacts:
   files:
   - '**/*'
-  base-directory: 'dist*'
+  base-directory: 'dist/checkers-ui*'
   discard-paths: no
 
 cache:
