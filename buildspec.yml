@@ -10,9 +10,6 @@ phases:
     commands:
     - echo Build started on `date`
     - ng build --prod
-  post_build:
-    commands:
-    - aws s3 cp dist s3://checkers-prod-resources --recursive
 artifacts:
   files:
   - '**/*'
