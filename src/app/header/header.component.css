@@ -1,0 +1,18 @@
+.links {
+  height: 24px;
+  background-color: white;
+}
+
+.logo-bar {
+  height: 60px;
+  background-color: white;
+  color: #e94c31;
+  font-weight: 600;
+  padding-left: 30px;
+  font-size: 34px;
+}
+
+.nav {
+  height: 40px;
+  background-color: #e94c31;
+}

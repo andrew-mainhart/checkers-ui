@@ -1,0 +1,55 @@
+.hero {
+  background-image: url("/assets/checkers.jpg");
+  flex-grow: 1;
+  background-size: cover;
+  background-position: center center;
+}
+
+.branding {
+
+}
+
+.branding .title {
+  font-size: 40px;
+  color: white;
+}
+
+.actions-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions {
+  display: flex;
+  max-width: 800px;
+  margin: 5px;
+}
+
+.actions > div {
+  flex-grow: 1;
+  flex-basis: 300px;
+  min-height: 400px;
+  margin: 5px;
+  padding: 15px;
+  color: rgba(209, 209, 209, 0.87);
+
+}
+
+
+.actions .title {
+  text-align: left;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.actions .left {
+  background-color: rgba(0, 0, 0, 0.51);
+  border-left: solid 4px black;
+}
+
+.actions .right {
+  background-color: rgba(163, 27, 3, 0.74);
+  border-left: solid 4px #a80000;
+}
+
