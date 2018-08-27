@@ -41,4 +41,9 @@ export class NewRoomComponent implements OnInit {
       }));
     }
   }
+
+  goToRoom() {
+    this.roomService.updateRoom(this.room);
+    // Redirect to page.
+  }
 }

@@ -38,11 +38,11 @@ export class RoomService {
     return ret;
   }
 
-  public getRoom (room: Room): BehaviorSubject<Room> {
+  public updateRoom (room: Room): BehaviorSubject<Room> {
 
-    this.http.get<Room>(this.baseUrl + '/rest/update-room', {withCredentials: true, params: {"code": room.code, "version": stringify(room.version)}}).subscribe((value => {
+    this.http.get<Room>(this.baseUrl + '/rest/update-room', {withCredentials: true, params: {"code": room.code, "version": ('' + room.version)}}).subscribe((value => {
       this.currentRoom.next(value);
-      this.getRoom(this.currentRoom.getValue());
+      this.updateRoom(this.currentRoom.getValue());
     }));
     return this.currentRoom;
 

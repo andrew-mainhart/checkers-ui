@@ -14,7 +14,8 @@
 <div *ngIf="room" class="room-code-container">
 
   <span class="room-code">
-    {{room.code}}
+    {{room.code}} <br><br>
+    <button (click)="goToRoom()">Go To Room</button>
   </span>
 
 </div>
