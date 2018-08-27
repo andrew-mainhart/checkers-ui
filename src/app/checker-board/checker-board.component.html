@@ -1,10 +1,10 @@
-<div *ngIf="board">
-  <div *ngFor="let row of board.board; let y = index">
-    <div *ngFor="let column of board.board[y]; let x = index">
-      <div class="red" *ngIf="board.getChipAt({'x': x, 'y': y}).type != 'black_single'">
+<div *ngIf="checkersBoard">
+  <div *ngFor="let row of checkersBoard.board; let y = index">
+    <div *ngFor="let column of checkersBoard.board[y]; let x = index">
+      <div class="red" *ngIf="getChipAt({'x': x, 'y': y}) && getChipAt({'x': x, 'y': y}).type != 'black_single'">
         RED
       </div>
-      <div class="black" *ngIf="board.getChipAt({'x': x, 'y': y}).type == 'black_single'">
+      <div class="black" *ngIf="getChipAt({'x': x, 'y': y}) && getChipAt({'x': x, 'y': y}).type == 'black_single'">
         BLACK
       </div>
     </div>

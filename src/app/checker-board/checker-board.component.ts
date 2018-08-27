@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Board} from "../types/Board";
+import {Coord} from "../types/Coord";
+import {Chip} from "../types/Chip";
 
 @Component({
   selector: 'app-checker-board',
@@ -11,9 +13,18 @@ export class CheckerBoardComponent implements OnInit {
   constructor() { }
 
   @Input("board")
-  public board: Board;
+  public checkersBoard: Board;
 
   ngOnInit() {
+  }
+
+  public getChipAt(coord: Coord): Chip {
+    if (this.checkersBoard.board.length > coord.x) {
+      if (this.checkersBoard.board[coord.x].length > coord.y) {
+        return this.checkersBoard.board[coord.x][coord.y];
+      }
+    }
+    throw "Invalid coordinates.";
   }
 
 }
