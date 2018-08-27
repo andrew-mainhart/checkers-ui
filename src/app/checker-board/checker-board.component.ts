@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Board} from "../types/Board";
 
 @Component({
   selector: 'app-checker-board',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class CheckerBoardComponent implements OnInit {
 
   constructor() { }
+
+  @Input("board")
+  public board: Board;
 
   ngOnInit() {
   }

@@ -11,6 +11,9 @@ import { NewRoomComponent } from './new-room/new-room.component';
 import {UserService} from "./user.service";
 import {FormsModule} from '@angular/forms';
 import { JoinRoomComponent } from './join-room/join-room.component';
+import {CheckerBoardComponent} from "./checker-board/checker-board.component";
+import {GamepageComponent} from "./gamepage/gamepage.component";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -20,11 +23,14 @@ import { JoinRoomComponent } from './join-room/join-room.component';
     FooterComponent,
     NewRoomComponent,
     JoinRoomComponent,
+    CheckerBoardComponent,
+    GamepageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [RoomService, UserService],
   bootstrap: [AppComponent]
