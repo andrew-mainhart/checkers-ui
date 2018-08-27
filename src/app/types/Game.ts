@@ -1,4 +1,6 @@
 import {User} from "./User";
+import {Board} from './Board';
+import {Move} from './Move';
 
 export class Game {
   board: Board;
