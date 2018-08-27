@@ -1,4 +1,3 @@
-<app-new-room *ngIf="newRoomFlyover" class="flyover"></app-new-room>
 <div class="hero">
   <div class="actions-holder">
     <div class="actions">
@@ -6,6 +5,9 @@
         <div class="title">Create a New Room</div>
         <div class="description">To start a quick game with a friend, create a new room and send them the room code.
         </div>
+
+        <app-new-room *ngIf="newRoomFlyover" class="flyover"></app-new-room>
+
       </div>
       <div class="right">
         <div class="title">Join an Existing Room</div>
