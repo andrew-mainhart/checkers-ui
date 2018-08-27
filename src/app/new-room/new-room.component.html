@@ -1,5 +1,10 @@
 <div *ngIf="!room">
-  <button (click)="newRoom()"></button>
+
+  <div *ngIf="!currentUser">Please enter your name.</div>
+
+  <button (click)="newRoom()" [disabled]="!currentUser">
+    Create New Room
+  </button>
 </div>
 <div *ngIf="room">
 
