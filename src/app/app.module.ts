@@ -9,6 +9,7 @@ import {RoomService} from "./room.service";
 import {HttpClientModule} from "@angular/common/http";
 import { NewRoomComponent } from './new-room/new-room.component';
 import {UserService} from "./user.service";
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {UserService} from "./user.service";
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [RoomService, UserService],
   bootstrap: [AppComponent]

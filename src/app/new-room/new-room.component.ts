@@ -16,6 +16,7 @@ export class NewRoomComponent implements OnInit {
 
   room: Room = null;
   currentUser: User = null;
+  username: string = "";
 
   ngOnInit() {
     this.userService.getUser().subscribe((value) => {
@@ -24,9 +25,18 @@ export class NewRoomComponent implements OnInit {
   }
 
   newRoom() {
+    //console.log(this.username);
+    let user: User = new User();
+    user.name = this.username;
+
+    this.userService.setUser(user).subscribe((val => {
       this.roomService.newRoom().subscribe((value => {
         this.room = value;
+
       }));
+    }));
+
+
 
   }
 }

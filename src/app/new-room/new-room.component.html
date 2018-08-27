@@ -1,8 +1,12 @@
 <div *ngIf="!room">
 
-  <div *ngIf="!currentUser">Please enter your name.</div>
+  <div *ngIf="!currentUser">Please enter your name.<br>
 
-  <button (click)="newRoom()" [disabled]="!currentUser">
+    <input type="text" [(ngModel)]="username"/>
+
+  </div>
+
+  <button (click)="newRoom()" [disabled]="!currentUser && username == ''">
     Create New Room
   </button>
 </div>
