@@ -17,7 +17,7 @@ export class RoomService {
   public newRoom(): BehaviorSubject<Room> {
     let ret = this.currentRoom;
     ret.next(null);
-    this.http.post<Room>(this.baseUrl + "/rest/new-room", null, {headers: {'withCredentials' : 'true'}}).subscribe((value => {
+    this.http.post<Room>(this.baseUrl + "/rest/new-room", null, {withCredentials : true}).subscribe((value => {
       ret.next(value);
     }), (error => {
       console.error(error);

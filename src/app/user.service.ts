@@ -18,7 +18,7 @@ export class UserService {
     let user: User = {"name" : "Brian"};
     let ret = new AsyncSubject<User>();
 
-    this.http.post(this.baseUrl + "/rest/set-user", user, {headers: {'withCredentials' : 'true'}}).subscribe(value => {
+    this.http.post(this.baseUrl + "/rest/set-user", user, {withCredentials : true}).subscribe(value => {
       ret.next(user);
       ret.complete();
     });
