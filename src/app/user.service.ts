@@ -16,7 +16,7 @@ export class UserService {
   private current_user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
 
-  public setUser(): AsyncSubject<User>{
+  public setUser(myUser: User): AsyncSubject<User>{
 
     let user: User = {"name" : "Brian"};
     let ret = new AsyncSubject<User>();
@@ -24,6 +24,7 @@ export class UserService {
     this.http.post(this.baseUrl + "/rest/set-user", user, {withCredentials : true}).subscribe(value => {
       ret.next(user);
       ret.complete();
+      this.current_user.next(user);
     });
 
     return ret;
