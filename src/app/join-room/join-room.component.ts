@@ -3,6 +3,7 @@ import {RoomService} from '../room.service';
 import {UserService} from '../user.service';
 import {Room} from '../types/Room';
 import {User} from '../types/User';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-join-room',
@@ -12,7 +13,8 @@ import {User} from '../types/User';
 export class JoinRoomComponent implements OnInit {
 
   constructor(private roomService: RoomService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private router: Router) { }
 
   room: Room = null;
   currentUser: User = null;
@@ -36,9 +38,12 @@ export class JoinRoomComponent implements OnInit {
   submitRoomName () {
     console.log(this.room_name);
     this.roomService.joinRoom(this.currentUser, this.room_name).subscribe((value => {
-        this.room = value;
-        this.roomService.updateRoom(this.room);
-        // REDIRECT
+        if (value != null) {
+          this.room = value;
+          alert(this.room.code);
+          this.roomService.updateRoom(this.room);
+          this.router.navigate(["/room", this.room.code]);
+        }
     }), (error => {
       console.log (error);
     }));
