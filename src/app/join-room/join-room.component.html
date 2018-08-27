@@ -1,0 +1,23 @@
+<div *ngIf="!room">
+
+  <div *ngIf="!currentUser">Please enter your name.<br>
+
+    <input type="text" [(ngModel)]="username"/><br><br>
+    <button (click)="submitUsername()" [disabled]="!currentUser && username == ''">
+      Submit Username
+    </button>
+
+  </div>
+
+  <div *ngIf="currentUser"> Please Enter Room Name <br>
+
+    <input type="text" [(ngModel)]="room_name"/><br><br>
+    <button (click)="submitRoomName()" [disabled]="room_name == ''">
+      Join Room
+    </button>
+
+
+  </div>
+
+
+</div>

@@ -5,13 +5,12 @@
         <div class="title">Create a New Room</div>
         <div class="description">To start a quick game with a friend, create a new room and send them the room code.
         </div>
-
         <app-new-room *ngIf="newRoomFlyover" class="flyover"></app-new-room>
-
       </div>
-      <div class="right">
+      <div class="right" (click)="joinRoomFlyover = true">
         <div class="title">Join an Existing Room</div>
         <div class="description">Enter a room code that was sent to so you can join your friend's game.</div>
+        <app-join-room *ngIf="joinRoomFlyover" class="flyover"></app-join-room>
       </div>
     </div>
   </div>

@@ -10,7 +10,8 @@ export class HomepageComponent implements OnInit {
 
   constructor(private roomService: RoomService) { }
 
-  public newRoomFlyover: boolean = false;
+  public newRoomFlyover  = false;
+  public joinRoomFlyover = false;
 
   ngOnInit() {
   }

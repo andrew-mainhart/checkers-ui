@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { NewRoomComponent } from './new-room/new-room.component';
 import {UserService} from "./user.service";
 import {FormsModule} from '@angular/forms';
+import { JoinRoomComponent } from './join-room/join-room.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {FormsModule} from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     NewRoomComponent,
+    JoinRoomComponent,
   ],
   imports: [
     BrowserModule,

@@ -25,18 +25,20 @@ export class NewRoomComponent implements OnInit {
   }
 
   newRoom() {
-    //console.log(this.username);
-    let user: User = new User();
-    user.name = this.username;
+    if (this.currentUser == null) {
+      let user: User = new User();
+      user.name = this.username;
 
-    this.userService.setUser(user).subscribe((val => {
+      this.userService.setUser(user).subscribe((val => {
+        this.roomService.newRoom().subscribe((value => {
+          this.room = value;
+
+        }));
+      }));
+    } else {
       this.roomService.newRoom().subscribe((value => {
         this.room = value;
-
       }));
-    }));
-
-
-
+    }
   }
 }
