@@ -1,10 +1,17 @@
-.flyover {
-
-  padding-top: 10px;
-
-}
 
 button:disabled {
   cursor: not-allowed;
   background-color: gainsboro;
 }
+
+.room-code {
+  font-weight: 700;
+  font-size: 25px;
+  font-style: italic;
+  color: black;
+}
+.room-code-container {
+  text-align: center;
+  margin-top: 30%;
+}
+

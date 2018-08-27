@@ -10,8 +10,10 @@
     Create New Room
   </button>
 </div>
-<div *ngIf="room">
+<div *ngIf="room" class="room-code-container">
 
-  {{room.code}}
+  <span class="room-code">
+    {{room.code}}
+  </span>
 
 </div>

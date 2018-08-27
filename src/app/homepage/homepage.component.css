@@ -60,4 +60,8 @@
   box-shadow: 0 0 4px black;
   min-height: 200px;
   min-width: 200px;
+  padding-top: 10px;
+  margin-left: 70px;
+  margin-top: 40px;
+  text-align: center;
 }
