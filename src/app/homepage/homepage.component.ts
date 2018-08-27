@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RoomService} from "../room.service";
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private roomService: RoomService) { }
+
+  public newRoomFlyover: boolean = false;
 
   ngOnInit() {
   }
+
 
 }

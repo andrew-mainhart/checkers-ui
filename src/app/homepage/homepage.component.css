@@ -53,3 +53,11 @@
   border-left: solid 4px #a80000;
 }
 
+.flyover {
+  position: absolute;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 0 4px black;
+  min-height: 200px;
+  min-width: 200px;
+}
