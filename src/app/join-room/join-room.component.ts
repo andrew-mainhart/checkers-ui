@@ -37,6 +37,10 @@ export class JoinRoomComponent implements OnInit {
     console.log(this.room_name);
     this.roomService.joinRoom(this.currentUser, this.room_name).subscribe((value => {
         this.room = value;
+        this.roomService.updateRoom(this.room);
+        // REDIRECT
+    }), (error => {
+      console.log (error);
     }));
   }
 
