@@ -3,6 +3,7 @@ import {RoomService} from "../room.service";
 import {Room} from "../types/Room";
 import {UserService} from "../user.service";
 import {User} from "../types/User";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-room',
@@ -12,7 +13,8 @@ import {User} from "../types/User";
 export class NewRoomComponent implements OnInit {
 
   constructor(private roomService: RoomService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private router: Router) { }
 
   room: Room = null;
   currentUser: User = null;
@@ -44,6 +46,7 @@ export class NewRoomComponent implements OnInit {
 
   goToRoom() {
     this.roomService.updateRoom(this.room);
+    this.router.navigate(["/room", this.room.code]);
     // Redirect to page.
   }
 }

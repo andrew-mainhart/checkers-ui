@@ -48,4 +48,9 @@ export class RoomService {
 
   }
 
+  public getCurrentRoom(): BehaviorSubject<Room> {
+    return this.currentRoom;
+  }
+
+
 }
