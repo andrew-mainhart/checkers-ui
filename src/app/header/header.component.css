@@ -18,9 +18,10 @@
 }
 
 .user-section {
-  font-size: 13px;
+  font-size: 18px;
   float: right;
   margin-right: 30px;
+  margin-top: 8px;
   line-height: 24px;
   color: #e94c31;
 }

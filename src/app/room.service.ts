@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject} from "rxjs";
 import {Room} from "./types/Room";
 import {User} from './types/User';
+import {stringify} from 'querystring';
 
 @Injectable()
 export class RoomService {
@@ -35,6 +36,16 @@ export class RoomService {
       console.error(error);
     }));
     return ret;
+  }
+
+  public getRoom (room: Room): BehaviorSubject<Room> {
+
+    this.http.get<Room>(this.baseUrl + '/rest/update-room', {withCredentials: true, params: {"code": room.code, "version": stringify(room.version)}}).subscribe((value => {
+      this.currentRoom.next(value);
+      this.getRoom(this.currentRoom.getValue());
+    }));
+    return this.currentRoom;
+
   }
 
 }
