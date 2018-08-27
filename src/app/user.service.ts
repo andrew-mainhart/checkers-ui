@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {AsyncSubject} from "rxjs";
+import {AsyncSubject, BehaviorSubject} from 'rxjs';
 import {User} from "./types/User";
 
 @Injectable({
@@ -12,6 +12,9 @@ export class UserService {
 
   private baseUrl = "https://rest.checkers451.com";
   //private baseUrl = "http://localhost:8080";
+
+  private current_user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+
 
   public setUser(): AsyncSubject<User>{
 
@@ -25,4 +28,13 @@ export class UserService {
 
     return ret;
   }
+
+  public getUser(): BehaviorSubject<User> {
+
+    this.http.get<User>(this.baseUrl + "/rest/get-user", {withCredentials: true}).subscribe(value => {
+        this.current_user.next(value);
+    });
+    return this.current_user;
+  }
+
 }
