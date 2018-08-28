@@ -2,4 +2,12 @@
   <button (click)="startGame()">Start Game</button>
 </div>
 
+
+<div *ngIf="room && room.checkersGame">
+  Player 1 (red): {{room.checkersGame.player1.name}} {{room.checkersGame.playerOneScore}}
+  <br>
+  Player 2 (black): {{room.checkersGame.player2.name}} {{room.checkersGame.playerTwoScore}}
+</div>
+
 <app-checker-board [board]="room.checkersGame.board" *ngIf="room && room.checkersGame"></app-checker-board>
+

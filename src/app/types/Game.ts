@@ -7,4 +7,6 @@ export class Game {
   moves: Move[];
   player1: User;
   player2: User;
+  playerOneScore: number;
+  playerTwoScore: number
 }
