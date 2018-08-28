@@ -1,12 +1,13 @@
 <div *ngIf="checkersBoard" class="board">
   <div *ngFor="let row of checkersBoard.board; let y = index" class="row">
-    <div *ngFor="let column of checkersBoard.board[y]; let x = index" [id]="x+'-'+y"  (click)="handleClick({'x': x, 'y': y})" [class]="isAllowedSpot({'x': x, 'y': y}) ? 'spot-play' : 'spot-not'">
+    <div *ngFor="let column of checkersBoard.board[y]; let x = index" [id]="x+'-'+y"
+         (click)="handleClick({'x': x, 'y': y})" [class]="isAllowedSpot({'x': x, 'y': y}) ? 'spot-play' : 'spot-not'">
       <div [class]="isSelected({'x': x, 'y': y}) ? 'selected' : ''">
-        <div class="red" *ngIf="getChipAt({'x': x, 'y': y}) && getChipAt({'x': x, 'y': y}).type != 'black_single'">
-          <div class="red checker"></div>
+        <div class="red" *ngIf="getChipAt({'x': x, 'y': y}) && getChipAt({'x': x, 'y': y}).red">
+          <div class="red checker"><i class="fas fa-chess-king" *ngIf="isKing(getChipAt({'x': x, 'y': y}))"></i></div>
         </div>
-        <div class="black" *ngIf="getChipAt({'x': x, 'y': y}) && getChipAt({'x': x, 'y': y}).type == 'black_single'">
-          <div class="black checker"></div>
+        <div class="black" *ngIf="getChipAt({'x': x, 'y': y}) && getChipAt({'x': x, 'y': y}).black">
+          <div class="black checker"><i class="fas fa-chess-king" *ngIf="isKing(getChipAt({'x': x, 'y': y}))"></i></div>
         </div>
         <div class="empty" *ngIf="!getChipAt({'x': x, 'y': y})">
           EMPTY

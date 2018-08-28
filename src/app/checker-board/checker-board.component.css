@@ -29,10 +29,26 @@
   position: absolute;
   margin-left: -29px;
   margin-top: -29px;
+  text-align: center;
+  font-size: 35px;
 }
 .red { background-color: red; }
 .black { background-color: black; }
 .selected {
   border: 36px solid lightgray;
   border-radius: 12px;
+}
+
+i {
+  position: relative;
+  top: 7px;
+}
+
+.black i {
+  color: rgba(255, 255, 255, 0.41);
+}
+
+.red i {
+  color: rgba(0, 0, 0, 0.41);
+  left: 1px;
 }
