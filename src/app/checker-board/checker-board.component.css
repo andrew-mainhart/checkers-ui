@@ -39,3 +39,7 @@
 }
 .red { background-color: red; }
 .black { background-color: black; }
+.selected {
+  border: 36px solid lightgray;
+  border-radius: 12px;
+}

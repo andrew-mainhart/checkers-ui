@@ -2,6 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Board} from "../types/Board";
 import {Coord} from "../types/Coord";
 import {Chip} from "../types/Chip";
+import {Move} from '../types/Move';
+import {User} from '../types/User';
+import {UserService} from '../user.service';
+import {RoomService} from '../room.service';
 
 @Component({
   selector: 'app-checker-board',
@@ -10,12 +14,36 @@ import {Chip} from "../types/Chip";
 })
 export class CheckerBoardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService,
+              private roomService: RoomService) { }
 
   @Input("board")
   public checkersBoard: Board;
 
+  private selectedCoord: Coord = null;
+  private selectedChip: Chip = null;
+  public currentUser: User = null;
+
   ngOnInit() {
+    this.userService.getUser().subscribe(value => {
+      this.currentUser = value;
+    });
+  }
+
+  public handleClick(coord: Coord) {
+    if (this.selectedCoord == null) {
+      this.selectedCoord = coord;
+      this.selectedChip = this.getChipAt(coord);
+    } else {
+      let move: Move = new Move();
+      move.fromSpot = this.selectedCoord;
+      move.toSpot = coord;
+      move.chip = this.selectedChip;
+      move.intermediateSpots = null;
+      move.byPlayer = this.currentUser;
+      this.roomService.makeMove(move, "flour-die");
+      this.selectedCoord = null;
+    }
   }
 
   public getChipAt(coord: Coord): Chip {
@@ -25,6 +53,13 @@ export class CheckerBoardComponent implements OnInit {
       }
     }
     throw "Invalid coordinates.";
+  }
+
+  public isSelected(coord: Coord): boolean {
+    if (this.selectedCoord == null) return false;
+    if (this.selectedCoord.x == coord.x && this.selectedCoord.y == coord.y) return true;
+    return false;
+
   }
 
   public isAllowedSpot(coord: Coord): boolean{

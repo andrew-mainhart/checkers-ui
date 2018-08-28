@@ -4,6 +4,7 @@ import {BehaviorSubject} from "rxjs";
 import {Room} from "./types/Room";
 import {User} from './types/User';
 import {stringify} from 'querystring';
+import {Move} from './types/Move';
 
 @Injectable()
 export class RoomService {
@@ -61,6 +62,12 @@ export class RoomService {
   public startGame(room: Room){
     this.http.post(this.baseUrl + "/rest/new-game", null, {withCredentials: true, params : {"code" : room.code}}).subscribe(value => {
       console.log(value);
+    });
+  }
+
+  public makeMove(move: Move, code: string) {
+    this.http.post(this.baseUrl + "/rest/game-move", null, {withCredentials: true, params : {"code" : code}}).subscribe(value=>{
+      console.log("done");
     });
   }
 
