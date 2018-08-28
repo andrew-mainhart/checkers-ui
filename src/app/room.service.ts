@@ -66,7 +66,6 @@ export class RoomService {
   }
 
   public makeMove(move: Move, code: string) {
-    alert(move.chip.type);
     this.http.post(this.baseUrl + "/rest/game-move", move, {withCredentials: true, params : {"code" : code}}).subscribe(value=>{
       console.log("done");
     });
