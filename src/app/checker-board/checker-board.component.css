@@ -2,13 +2,6 @@
   display: flex;
 }
 
-.board {
-  width: 640px;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 .row > div {
   flex-grow: 1;
   flex-basis: 0;
