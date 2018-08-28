@@ -6,6 +6,7 @@ import {Move} from '../types/Move';
 import {User} from '../types/User';
 import {UserService} from '../user.service';
 import {RoomService} from '../room.service';
+import {Room} from '../types/Room';
 
 @Component({
   selector: 'app-checker-board',
@@ -35,13 +36,14 @@ export class CheckerBoardComponent implements OnInit {
       this.selectedCoord = coord;
       this.selectedChip = this.getChipAt(coord);
     } else {
-      let move: Move = new Move();
+      const move: Move = new Move();
+      const room = this.roomService.getCurrentRoom();
       move.fromSpot = this.selectedCoord;
       move.toSpot = coord;
       move.chip = this.selectedChip;
-      move.intermediateSpots = null;
+      move.intermediateSpots = [];
       move.byPlayer = this.currentUser;
-      this.roomService.makeMove(move, "flour-die");
+      this.roomService.makeMove(move, room.getValue().code);
       this.selectedCoord = null;
     }
   }
