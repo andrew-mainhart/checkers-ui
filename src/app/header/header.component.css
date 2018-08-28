@@ -4,12 +4,18 @@
 }
 
 .logo-bar {
-  height: 60px;
+  height: 70px;
+  line-height: 70px;
   background-color: white;
-  color: #e94c31;
   font-weight: 600;
   padding-left: 30px;
   font-size: 34px;
+}
+
+.logo-bar a {
+  color: #e94c31;
+  position: relative;
+  top: -5px;
 }
 
 .nav {
@@ -18,10 +24,26 @@
 }
 
 .user-section {
-  font-size: 18px;
   float: right;
-  margin-right: 30px;
-  margin-top: 8px;
+  margin-right: 20px;
+}
+
+.left {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.links a {
   line-height: 24px;
+  font-size: 13px;
   color: #e94c31;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+
+.links a:hover {
+  background-color: #e94c31;
+  color: white;
 }

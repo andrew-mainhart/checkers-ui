@@ -1,9 +1,16 @@
 <div class="links">
-  <div class="left"></div>
-  <div class="right user-section" *ngIf="currentUser">{{currentUser.name}}</div>
+  <div class="left">
+    <a>Checkers 451</a>
+    <a>Release Notes</a>
+    <a>Source Control</a>
+    <a>Bug Tracking</a>
+  </div>
+  <div class="right user-section" *ngIf="currentUser">
+    <a>{{currentUser.name}}</a>
+  </div>
 </div>
 <div class="logo-bar">
-  Checkers 451
+  <a>Checkers 451</a>
 </div>
 <div class="nav">
 
