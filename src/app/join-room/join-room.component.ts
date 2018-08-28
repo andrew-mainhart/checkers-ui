@@ -41,6 +41,11 @@ export class JoinRoomComponent implements OnInit, OnDestroy {
 
   submitRoomName () {
     console.log(this.room_name);
+
+    if(this.roomSubscription){
+      this.roomSubscription.unsubscribe();
+    }
+
     this.roomSubscription = this.roomService.joinRoom(this.currentUser, this.room_name).subscribe((value => {
         if (value != null) {
           this.room = value;
