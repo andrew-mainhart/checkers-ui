@@ -3,13 +3,16 @@
 </div>
 
 
-<div *ngIf="room && room.checkersGame">
+<div *ngIf="room && room.checkersGame" class="container">
+  <!--
+
   Player 1 (red): {{room.checkersGame.player1.name}} {{room.checkersGame.playerOneScore}}
   <span *ngIf="room.checkersGame.turnUser.uuid == room.checkersGame.player1.uuid">(CURRENT TURN)</span>
   <br>
   Player 2 (black): {{room.checkersGame.player2.name}} {{room.checkersGame.playerTwoScore}}
   <span *ngIf="room.checkersGame.turnUser.uuid == room.checkersGame.player2.uuid">(CURRENT TURN)</span>
+
+  -->
+  <app-game-sidebar [game]="room.checkersGame"></app-game-sidebar>
+  <app-checker-board [board]="room.checkersGame.board"></app-checker-board>
 </div>
-
-<app-checker-board [board]="room.checkersGame.board" *ngIf="room && room.checkersGame"></app-checker-board>
-

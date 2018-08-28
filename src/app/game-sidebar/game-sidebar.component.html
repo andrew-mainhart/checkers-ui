@@ -1,0 +1,30 @@
+<div class="container">
+  <!-- Current Turn Display -->
+  <div [class]="isRed(game.turnUser) ? 'turn red' : 'turn black'">
+    <span *ngIf="isTurn()">Your Turn</span>
+    <span *ngIf="!isTurn()">{{game.turnUser.name}}'s Turn</span>
+  </div>
+
+  <!-- Current Score Display -->
+  <div class="score">
+    <div class="red">
+      <div class="heading" *ngIf="game.player1.uuid != player.uuid">{{game.player1.name}}</div>
+      <div class="heading" *ngIf="game.player1.uuid == player.uuid">You</div>
+      <div class="number">{{game.playerOneScore}}</div>
+      <div class="label">points</div>
+    </div>
+    <div class="black">
+      <div class="heading" *ngIf="game.player2.uuid != player.uuid">{{game.player2.name}}</div>
+      <div class="heading" *ngIf="game.player2.uuid == player.uuid">You</div>
+      <div class="number">{{game.playerTwoScore}}</div>
+      <div class="label">points</div>
+    </div>
+  </div>
+
+  <!-- New game option -->
+
+  <div class="new-game" *ngIf="player.uuid == game.player1.uuid">
+    <button class="ghost-button" (click)="newGame()">Start a New Game</button>
+  </div>
+
+</div>

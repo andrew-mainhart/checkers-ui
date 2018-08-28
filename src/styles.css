@@ -11,12 +11,39 @@ body {
   flex-direction: column;
 }
 
-app-root, app-homepage {
+app-root, app-homepage, app-gamepage {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
+app-gamepage {
+  background-color: #f5efef;
+}
+
 * {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.ghost-button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #e94c31;
+  color: #e94c31;
+  text-align: center;
+  font-size: 14px;
+  padding: 9px;
+  border: none !important;
+  outline: 0 !important;
+  width: 100%;
+  cursor: pointer;
+  transition: .25s all;
+  background-color: transparent;
+  margin: 0;
+}
+
+.ghost-button:hover{
+  background-color: #e94c31;
+  color: white;
 }

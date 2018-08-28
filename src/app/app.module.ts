@@ -15,6 +15,7 @@ import {CheckerBoardComponent} from "./checker-board/checker-board.component";
 import {GamepageComponent} from "./gamepage/gamepage.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {UserResolver} from "./resolvers/UserResolver";
+import { GameSidebarComponent } from './game-sidebar/game-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {UserResolver} from "./resolvers/UserResolver";
     JoinRoomComponent,
     CheckerBoardComponent,
     GamepageComponent,
+    GameSidebarComponent,
   ],
   imports: [
     BrowserModule,

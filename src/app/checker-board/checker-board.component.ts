@@ -64,6 +64,10 @@ export class CheckerBoardComponent implements OnInit {
 
   }
 
+  public isKing(chip: Chip): boolean{
+    return chip.type == 'red_king' || chip.type == 'black_king';
+  }
+
   public isAllowedSpot(coord: Coord): boolean{
       if (coord.x % 2 == 0) {
         return coord.y % 2 == 0;
