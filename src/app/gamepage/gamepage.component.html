@@ -5,8 +5,10 @@
 
 <div *ngIf="room && room.checkersGame">
   Player 1 (red): {{room.checkersGame.player1.name}} {{room.checkersGame.playerOneScore}}
+  <span *ngIf="room.checkersGame.turnUser.uuid == room.checkersGame.player1.uuid">(CURRENT TURN)</span>
   <br>
   Player 2 (black): {{room.checkersGame.player2.name}} {{room.checkersGame.playerTwoScore}}
+  <span *ngIf="room.checkersGame.turnUser.uuid == room.checkersGame.player2.uuid">(CURRENT TURN)</span>
 </div>
 
 <app-checker-board [board]="room.checkersGame.board" *ngIf="room && room.checkersGame"></app-checker-board>

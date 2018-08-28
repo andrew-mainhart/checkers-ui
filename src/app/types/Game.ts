@@ -9,4 +9,5 @@ export class Game {
   player2: User;
   playerOneScore: number;
   playerTwoScore: number
+  turnUser: User;
 }
