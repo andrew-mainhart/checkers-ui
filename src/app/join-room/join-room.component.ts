@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {RoomService} from '../room.service';
 import {UserService} from '../user.service';
 import {Room} from '../types/Room';
 import {User} from '../types/User';
 import {Router} from '@angular/router';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-join-room',
   templateUrl: './join-room.component.html',
   styleUrls: ['./join-room.component.css']
 })
-export class JoinRoomComponent implements OnInit {
+export class JoinRoomComponent implements OnInit, OnDestroy {
 
   constructor(private roomService: RoomService,
               private userService: UserService,
@@ -20,6 +21,9 @@ export class JoinRoomComponent implements OnInit {
   currentUser: User = null;
   username = '';
   room_name = '';
+
+  userSubscription: Subscription;
+  roomSubscription: Subscription;
 
   ngOnInit() {
     this.userService.getUser().subscribe((value) => {
@@ -37,7 +41,7 @@ export class JoinRoomComponent implements OnInit {
 
   submitRoomName () {
     console.log(this.room_name);
-    this.roomService.joinRoom(this.currentUser, this.room_name).subscribe((value => {
+    this.roomSubscription = this.roomService.joinRoom(this.currentUser, this.room_name).subscribe((value => {
         if (value != null) {
           this.room = value;
           this.roomService.updateRoom(this.room);
@@ -48,4 +52,9 @@ export class JoinRoomComponent implements OnInit {
     }));
   }
 
+  ngOnDestroy(){
+    if(this.roomSubscription){
+      this.roomSubscription.unsubscribe();
+    }
+  }
 }
