@@ -40,7 +40,6 @@ export class JoinRoomComponent implements OnInit {
     this.roomService.joinRoom(this.currentUser, this.room_name).subscribe((value => {
         if (value != null) {
           this.room = value;
-          alert(this.room.code);
           this.roomService.updateRoom(this.room);
           this.router.navigate(["/room", this.room.code]);
         }

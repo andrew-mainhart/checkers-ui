@@ -1,11 +1,14 @@
-<div *ngIf="checkersBoard">
-  <div *ngFor="let row of checkersBoard.board; let y = index">
-    <div *ngFor="let column of checkersBoard.board[y]; let x = index">
+<div *ngIf="checkersBoard" class="board">
+  <div *ngFor="let row of checkersBoard.board; let y = index" class="row">
+    <div *ngFor="let column of checkersBoard.board[y]; let x = index" [class]="isAllowedSpot({'x': x, 'y': y}) ? 'spot-play' : 'spot-not'">
       <div class="red" *ngIf="getChipAt({'x': x, 'y': y}) && getChipAt({'x': x, 'y': y}).type != 'black_single'">
         RED
       </div>
       <div class="black" *ngIf="getChipAt({'x': x, 'y': y}) && getChipAt({'x': x, 'y': y}).type == 'black_single'">
         BLACK
+      </div>
+      <div class="empty" *ngIf="!getChipAt({'x': x, 'y': y})">
+        EMPTY
       </div>
     </div>
   </div>

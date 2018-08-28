@@ -1,1 +1,5 @@
-<app-checker-board [board]="room.checkersGame.board" *ngIf="room.checkersGame"></app-checker-board>
+<div *ngIf="true">
+  <button (click)="startGame()">Start Game</button>
+</div>
+
+<app-checker-board [board]="room.checkersGame.board" *ngIf="room && room.checkersGame"></app-checker-board>

@@ -45,7 +45,6 @@ export class NewRoomComponent implements OnInit {
   }
 
   goToRoom() {
-    this.roomService.updateRoom(this.room);
     this.router.navigate(["/room", this.room.code]);
     // Redirect to page.
   }

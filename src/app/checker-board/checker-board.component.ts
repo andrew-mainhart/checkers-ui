@@ -27,4 +27,12 @@ export class CheckerBoardComponent implements OnInit {
     throw "Invalid coordinates.";
   }
 
+  public isAllowedSpot(coord: Coord): boolean{
+      if (coord.x % 2 == 0) {
+        return coord.y % 2 == 0;
+      } else {
+        return coord.y % 2 != 0;
+      }
+  }
+
 }

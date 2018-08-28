@@ -21,6 +21,7 @@ export class RoomService {
     ret.next(null);
     this.http.post<Room>(this.baseUrl + "/rest/new-room", null, {withCredentials : true}).subscribe((value => {
       ret.next(value);
+      this.updateRoom(value);
     }), (error => {
       console.error(error);
     }));
@@ -32,6 +33,7 @@ export class RoomService {
     ret.next(null);
     this.http.post<Room>(this.baseUrl + "/rest/join-room", null, {withCredentials: true, params: {"code": code, "as": "PLAYER"}}).subscribe((value => {
       ret.next(value);
+      this.updateRoom(value);
     }), (error => {
       console.error(error);
     }));
@@ -41,8 +43,12 @@ export class RoomService {
   public updateRoom (room: Room): BehaviorSubject<Room> {
 
     this.http.get<Room>(this.baseUrl + '/rest/update-room', {withCredentials: true, params: {"code": room.code, "version": ('' + room.version)}}).subscribe((value => {
-      this.currentRoom.next(value);
-      this.updateRoom(this.currentRoom.getValue());
+      if(value.code == this.currentRoom.getValue().code) {
+        this.currentRoom.next(value);
+        this.updateRoom(this.currentRoom.getValue());
+      } else {
+        alert("Has the current room switched?");
+      }
     }));
     return this.currentRoom;
 
@@ -50,6 +56,12 @@ export class RoomService {
 
   public getCurrentRoom(): BehaviorSubject<Room> {
     return this.currentRoom;
+  }
+
+  public startGame(room: Room){
+    this.http.post(this.baseUrl + "/rest/new-game", null, {withCredentials: true, params : {"code" : room.code}}).subscribe(value => {
+      console.log(value);
+    });
   }
 
 
